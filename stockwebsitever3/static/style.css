@@ -1,0 +1,34 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif; 
+}
+
+table {
+    margin: 20px auto; 
+    border-collapse: collapse; 
+    width: 80%;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px; 
+    text-align: center; 
+    font-size: 15px;
+    font-weight :normal;
+    /* font-family: 'Times New Roman', serif; */
+}
+
+title {
+    text-align: center;
+}
+
+
+.plottitle {
+    text-align: center; 
+}
+
+.updatelast{
+    /* margin-left: 80px; */
+    text-align: center; 
+}

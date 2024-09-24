@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Prediction</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+    <h1 class = "plottitle">LSTM Incremental Learning Model </h1>
+    <div id="plot1"></div>
+    <p class = "updatelast">Apple Prediction Model Last Fine-tuned at : {{ RecentDateApple }}</p>
+    <table>
+        <tr>
+            {% for item in AppleData1 %}
+                <td>{{ item }}</td>
+            {% endfor %}
+        </tr>
+        <tr>
+            {% for item in AppleData2 %}
+                <td>{{ item }}</td>
+            {% endfor %}
+        </tr>
+        <tr>
+            {% for item in AppleData3 %}
+                <td>{{ item }}</td>
+            {% endfor %}
+        </tr>
+    </table>
+
+    <div id="plot2"></div>
+    <p class = "updatelast">Tesla Prediction Model Last Fine-tuned : {{ RecentDateTesla }}</p>
+    <table id="table2">
+        <tr>
+            {% for header in TeslaData1 %}
+            <th>{{ header }}</th>
+            {% endfor %}
+        </tr>
+        <tr>
+            {% for value in TeslaData2 %}
+            <td>{{ value }}</td>
+            {% endfor %}
+        </tr>
+        <tr>
+            {% for value in TeslaData3 %}
+            <td>{{ value }}</td>
+            {% endfor %}
+        </tr>
+    </table>
+    
+
+    <script>
+        const plotApple = JSON.parse('{{ plotApple|safe }}');
+        const plotTesla = JSON.parse('{{ plotTesla|safe }}');
+
+        Plotly.react("plot1", plotApple.data, plotApple.layout);
+        // Plotly.react("plot2", plotMicrosoft.data, plotMicrosoft.layout);
+        Plotly.react("plot2",plotTesla.data,plotTesla.layout);
+        // Plotly.react("plot4",plotNvidia.data,plotNvidia.layout);
+    </script>
+</body>
+</html>
+
